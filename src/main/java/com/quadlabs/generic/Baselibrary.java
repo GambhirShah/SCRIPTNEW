@@ -1,23 +1,25 @@
 package com.quadlabs.generic;
 
+import java.util.List;
+
 //Anurag
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
@@ -30,7 +32,7 @@ public class Baselibrary {
 	
 	
 	@Parameters("browser")
-	@BeforeMethod	
+	@BeforeClass	
 	public void precondition(String Browsername)
 	  {
 		
@@ -61,24 +63,26 @@ public class Baselibrary {
 		 } 
 	  
 		 	e_driver = new EventFiringWebDriver(driver);
+		 	
 			// Now create object of EventListerHandler to register it with EventFiringWebDriver
-			eventListener = new WebEventListener();
-			e_driver.register(eventListener);
-			driver = e_driver;
+			
+		 	eventListener = new WebEventListener();
+			
+		 	e_driver.register(eventListener);
+			
+		 	driver = e_driver;
 			
 			driver.manage().window().maximize();
+			
 			driver.manage().deleteAllCookies();
 		
-	
-		 	driver.get(GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", "testUrl"));
-		 	
-		 	
+		 	driver.get(GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", "testUrl")); 	
 		 	
       }
 
 
 	
-	 @AfterMethod
+	 @AfterClass
 	 public void postcondition(ITestResult result)
 	 {
 		 if(result.isSuccess())
@@ -139,7 +143,11 @@ public class Baselibrary {
 		}
 	
 
-	
+		
+		
+		
+			
+		
 	
 }
 

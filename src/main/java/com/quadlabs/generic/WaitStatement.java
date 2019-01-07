@@ -24,14 +24,15 @@ package com.quadlabs.generic;
 		public static void explicitWaitForVisibility(WebDriver driver,int time,WebElement ele)
 		{
 			WebDriverWait wait =new WebDriverWait(driver,time);
-		
+			wait.until(ExpectedConditions.visibilityOf(ele));
 			
 		}
 		
 		public static void explicitWaitForClickable(WebDriver driver,int time,WebElement ele)
 		{
 			
-			WebDriverWait waits =new WebDriverWait(driver,time);
+			WebDriverWait wait =new WebDriverWait(driver,time);
+			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			
 		}
 	}
