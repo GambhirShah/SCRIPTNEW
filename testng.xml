@@ -8,7 +8,7 @@
   <test thread-count="5" name="Test">
   <parameter name="browser" value ="chrome"/>
     <classes>
-      <class name="com.quadlabs.pagescript.CorpPolicyApproverTest"/>
+      <class name="com.quadlabs.pagescript.CorporateManagementTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -7,13 +7,14 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.quadlabs.pagescript.CorpPolicyApproverTest">
+      <class name="com.quadlabs.pagescript.CorporateManagementTest">
         <methods>
+          <include name="corp"/>
           <include name="precondition"/>
-          <include name="selectuser" invocation-numbers="1 2 3 4 5"/>
+          <include name="closebranch"/>
           <include name="postcondition"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.CorpPolicyApproverTest -->
+      </class> <!-- com.quadlabs.pagescript.CorporateManagementTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
