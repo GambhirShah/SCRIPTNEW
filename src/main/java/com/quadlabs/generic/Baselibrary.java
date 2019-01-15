@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import org.testng.ITestResult;
@@ -46,8 +47,12 @@ public class Baselibrary {
 		 
 		 {
 		
-			 driver = new FirefoxDriver();
-			 Reporter.log("Firefox launched",true);
+		    		System.out.println("Firefox browser");
+					System.setProperty("webdriver.firefox.marionette",  System.getProperty("user.dir")+"\\exefiles\\geckodriver.exe");
+					DesiredCapabilities dc = DesiredCapabilities.firefox();
+					dc.setCapability("marionette", true);
+					driver = new FirefoxDriver();
+					driver.manage().window().maximize();
 		
 		 }
 	  

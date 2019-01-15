@@ -1,5 +1,11 @@
 package com.quadlabs.pageobject;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -18,21 +24,26 @@ public class CorporateManagement extends Baselibrary {
 			String actualurl=driver.getCurrentUrl();
 			Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
 			Reporter.log("Homepage Url Is Verified", true);	
-	//	    getWebElement("managedivision").click();
+	    getWebElement("managedivision").click();
 	}
 		
+	public static void verifymanagedivision(WebDriver driver)
+	{String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/ViewBusinessType.aspx";
+	String actualurl=driver.getCurrentUrl();
+	Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
+	Reporter.log("Homepage Url Is Verified", true);
+	}
 		
-		
-	/**	public static void managedivision(String division) throws Exception 
+		public static void managedivision(String division) throws Exception 
 		{
 			
 			getWebElement("divisionadd").click();
 			getWebElement("enterdivision").sendKeys(division);
 			getWebElement("status").click();
-			getWebElement("Save").click();
-			
-			
+			getWebElement("Save").click();	
 		}
+	
+		
 		public static void managebranch(String Telephone,
 				String Mobile,String Fax,String Contactname,String ContactEmailAdresss,
 				String ContactMobile,String country,String Postcode,String State,
@@ -41,6 +52,10 @@ public class CorporateManagement extends Baselibrary {
 		{
 			
 			getWebElement("branch").click();
+			String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/CA_branch.aspx";
+			String actualurl=driver.getCurrentUrl();
+			Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
+			Reporter.log("Homepage Url Is Verified", true);
 			getWebElement("branchadd").click();
 			WebElement seldivision = getWebElement("Division");
 			Select sel = new Select(seldivision);
@@ -90,6 +105,9 @@ public class CorporateManagement extends Baselibrary {
 			getWebElement("addbutton").click();
 			getWebElement("Designation").sendKeys(Designation);
 			getWebElement("Save").click();
+			driver.switchTo().alert().accept();
+			
+			
 			
 		}
 		
@@ -116,7 +134,105 @@ public class CorporateManagement extends Baselibrary {
 		getWebElement("Savebuttonexpiration").click();
 		getWebElement("BtnClose").click();
 		}
-		**/
-		public static void managetravelcategory()
-		{}
-}
+	
+		
+		public static void managetravelcategory(String TravelCategoryName) throws Exception
+		{
+			getWebElement("ManageTravelCategory").click();
+			getWebElement("Addtravelcategory").click();
+				getWebElement("travelcategoryname").sendKeys(TravelCategoryName);
+				getWebElement("Businesstrip").click();
+				getWebElement("ApplyTravelpolicy").click();
+				getWebElement("Status").click();
+				getWebElement("AddCategory").click();
+				driver.switchTo().alert().accept();
+		}
+	
+	public static void managecostcentre(String CostCentercode,String CostCenterName) throws Exception
+	{
+		getWebElement("costcenter").click();
+		getWebElement("Addcostcenter").click();
+		getWebElement("CostCenterCode").sendKeys(CostCentercode);
+		getWebElement("CostCenterName").sendKeys(CostCenterName);
+		getWebElement("Status").click();
+	    getWebElement("Addnewcostcenter").click();
+	    }                      
+	public static void predefinedreasonforoutpolicy(String Reasoncode,String Reasonname) throws Exception
+	{
+		getWebElement("outpolicyreason").click();
+		getWebElement("AddNewPolicyreason").click();
+		WebElement Lang=getWebElement("Language");
+		Select SelLang= new Select(Lang);
+		SelLang.selectByVisibleText("English");
+		getWebElement("Reasoncode").sendKeys(Reasoncode);
+		getWebElement("Reasonname").sendKeys(Reasonname);
+		getWebElement("Statuscheck").click();
+		getWebElement("Addoutpolicy").click();
+	driver.switchTo().alert().accept();	
+	}
+	 
+	public static void AddProject(String Projectcode,String ProjectName) throws Exception
+	{
+		getWebElement("manageproject").click();
+		getWebElement("AddProject").click();				
+		getWebElement("Projectcode").sendKeys(Projectcode);
+		getWebElement("ProjectName").sendKeys(ProjectName);
+		getWebElement("Projectstatus").click();
+		getWebElement("AddProject").click();
+		driver.switchTo().alert().accept();
+   }
+	
+	public static void corporatecards(String Billaddress,
+			String Cardname,String Nameoncard,
+			String CardNumber ,String expMonth,String expyear,
+			String cardlimit,String Currency, String Bankcharge,String Paymentperiod,String Corporate) throws Exception
+	{
+		getWebElement("CreditCArd").click();
+		getWebElement("AddCArd").click();
+		getWebElement("CardName").sendKeys(Cardname);
+WebElement cardoption=getWebElement("CArdOption");
+Select Selcard=new Select(cardoption);
+Selcard.selectByVisibleText("Debit Card");
+
+WebElement cardtype =getWebElement("CardType");
+Select Selcardtype =new Select(cardtype);
+Selcardtype.selectByVisibleText("Debit Card");
+
+getWebElement("NameonCArd").sendKeys(Nameoncard);
+getWebElement("CardNumber").sendKeys(CardNumber);
+		
+WebElement cardexpmonth=getWebElement("Expirymonth");
+Select expmonth=new Select(cardexpmonth);
+expmonth.selectByVisibleText(expMonth);
+		
+WebElement cardexpYear=getWebElement("ExpiryYear");
+Select expYear=new Select(cardexpYear);
+expYear.selectByVisibleText(expyear);
+		
+getWebElement("BillingAddress").sendKeys(Billaddress);
+getWebElement("CardLimit").sendKeys(cardlimit);
+		WebElement Country=getWebElement("country");
+		Select country= new Select(Country);
+		country.selectByVisibleText("India");
+		getWebElement("currency").sendKeys(Currency);
+		getWebElement("BankCharges").sendKeys(Bankcharge);
+		getWebElement("PaymentPeriod").sendKeys(Paymentperiod);
+		WebElement userrule=getWebElement("RuleAppliedon");
+		Select userrulE= new Select(userrule);
+		userrulE.selectByVisibleText("Corporate");
+		
+		List<WebElement> Corporates =  driver.findElements(By.xpath("//select[@id='listUser']/option"));  
+    	for(WebElement webelement : Corporates)
+    	{
+    		if(webelement.getText().contains(Corporate))
+    		{
+    			
+    			webelement.click();
+    			getWebElement("Addselect").click();
+    		}
+        }
+    	
+    	Thread.sleep(4000);
+    	getWebElement("SaveCard1").click();
+    	}
+	}

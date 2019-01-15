@@ -5,16 +5,15 @@
     <listener class-name="com.quadlabs.generic.ExtentReporterNG"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="chrome"/>
+    <parameter name="browser" value="IE"/>
     <classes>
-      <class name="com.quadlabs.pagescript.CorporateManagementTest">
+      <class name="com.quadlabs.pagescript.DashBoardTest">
         <methods>
-          <include name="corp"/>
           <include name="precondition"/>
-          <include name="closebranch"/>
+          <include name="searchEmployee"/>
           <include name="postcondition"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.CorporateManagementTest -->
+      </class> <!-- com.quadlabs.pagescript.DashBoardTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
