@@ -2,22 +2,34 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
-<listeners>
+    <listeners>
+
 		<listener class-name="com.quadlabs.generic.ExtentReporterNG" />
-	</listeners>
-  <test thread-count="5" name="Test">
-  <parameter name="browser" value ="firefox"/>
+		
+    </listeners>
+
+<test thread-count="5" name="Test">
+
+<parameter name="browser" value ="firefox"/>
+
     <classes>
-     <class name="com.quadlabs.pagescript.DashBoardTest"/>
+
+        <class name="com.quadlabs.pagescript.DashBoardTest"/>
+        
     </classes>
-  </test> <!-- Test -->
+
+</test> <!-- Test -->
   
-  <test thread-count="5" name="Test2">
-  <parameter name="browser" value ="chrome"/>
+<test thread-count="5" name="Test2">
+
+<parameter name="browser" value ="chrome"/>
+
     <classes>
-     <class name="com.quadlabs.pagescript.DashBoardTest"/>
+
+        <class name="com.quadlabs.pagescript.DashBoardTest"/>
+        
     </classes>
-  </test> <!-- Test -->
-  
-  
+
+</test> <!-- Test -->
+
 </suite> <!-- Suite -->

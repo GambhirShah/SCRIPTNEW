@@ -472,4 +472,8 @@ public class CorporateManagementTest extends Baselibrary {
 	 getWebElement("Close").click();	
 
 }
+	
+	@Test
+	public void verification()
+	{CorporateManagement.verifymanagedivision(driver);}
 }

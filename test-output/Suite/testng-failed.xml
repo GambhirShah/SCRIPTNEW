@@ -5,15 +5,15 @@
     <listener class-name="com.quadlabs.generic.ExtentReporterNG"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="IE"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.quadlabs.pagescript.DashBoardTest">
+      <class name="com.quadlabs.pagescript.Mangaetravelpolicytest">
         <methods>
           <include name="precondition"/>
-          <include name="searchEmployee"/>
           <include name="postcondition"/>
+          <include name="policy" invocation-numbers="1"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.DashBoardTest -->
+      </class> <!-- com.quadlabs.pagescript.Mangaetravelpolicytest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

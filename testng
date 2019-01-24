@@ -1,0 +1,9 @@
+method run ordering
+
+we can execute multiple  test case in single testng  class
+
+we can assert any time in testng class using assert
+
+soft assert is used if we want to play our code even the test fails 
+we can directly create object
+

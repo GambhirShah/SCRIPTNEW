@@ -34,7 +34,7 @@ public class CorporateManagement extends Baselibrary {
 	Reporter.log("Homepage Url Is Verified", true);
 	}
 		
-		public static void managedivision(String division) throws Exception 
+    public static void managedivision(String division) throws Exception 
 		{
 			
 			getWebElement("divisionadd").click();

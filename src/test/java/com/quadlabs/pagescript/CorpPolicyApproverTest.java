@@ -85,12 +85,15 @@ public class CorpPolicyApproverTest extends Baselibrary {
 	{
 		
 		CorpPolicyApprover.handlingStaleElement(user);	
-		getWebElement("Submit").click();
+		
 		
 		
 		
 	
 	}
+	@Test(priority=4)
+	public static void save() throws Exception
+	{getWebElement("Submit").click();}
 		//Thirunavukarasu  Sethuraman(Thirunavukarasu.Sethuraman@bmw.in
 		//*[text()="Thirunavukarasu  Sethuraman(Thirunavukarasu.Sethuraman@bmw.in)"]
 		
