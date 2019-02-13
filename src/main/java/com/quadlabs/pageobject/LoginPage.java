@@ -60,6 +60,7 @@ public class LoginPage extends Baselibrary {
 		FileInputStream fis = new FileInputStream(file);
 		
 		or.load(fis);
+	//	getWebElement("companycode").sendKeys(companycode);
 		
 		WebElement Untxtbox = getWebElement("loginusername");
 	
