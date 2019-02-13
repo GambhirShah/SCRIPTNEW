@@ -30,11 +30,13 @@
   </build>
   <dependencies>
   
-  <dependency>
+ <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
     <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-server</artifactId>
+    <artifactId>selenium-java</artifactId>
     <version>3.14.0</version>
 </dependency>
+
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
