@@ -6,9 +6,9 @@
 		<listener class-name="com.quadlabs.generic.ExtentReporterNG" />
 	</listeners>
   <test thread-count="5" name="Test">
-  <parameter name="browser" value ="chrome"/>
+  <parameter name="browser" value ="firefox"/>
     <classes>
-     <class name="com.quadlabs.pagescript.Mangaetravelpolicytest"/>
+     <class name="com.quadlabs.pagescript.ResultClassTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

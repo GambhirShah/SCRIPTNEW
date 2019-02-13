@@ -1,7 +1,8 @@
 package com.quadlabs.generic;
 
 
-	import java.util.concurrent.TimeUnit;
+	import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
@@ -33,6 +34,13 @@ package com.quadlabs.generic;
 			
 			WebDriverWait wait =new WebDriverWait(driver,time);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
+			
+		}
+		
+		public static void explicitWaitForVisibilities(WebDriver driver,int time,List<WebElement> ele)
+		{
+			WebDriverWait wait =new WebDriverWait(driver,time);
+			wait.until(ExpectedConditions.visibilityOfAllElements(ele));
 			
 		}
 	}

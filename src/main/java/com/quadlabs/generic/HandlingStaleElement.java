@@ -12,7 +12,7 @@ public class HandlingStaleElement extends Baselibrary {
 	
 	static WebDriver driver;
 	
-	public static boolean handlingStaleElement1 (String comparabledata,String xpath) throws Exception
+	public static boolean handlingStaleElement1 (String comparabledata) throws Exception
 	{
 		
 	    boolean result = false;
@@ -20,8 +20,10 @@ public class HandlingStaleElement extends Baselibrary {
 	    while(attempts < 2) 
 	    {
 	        try {
-	  
-	        	List<WebElement> users =  driver.findElements(By.xpath("+xpath+"));
+	        	
+	        	
+	        	
+	        	List<WebElement> users =  driver.findElements(By.id("divDestinationCity"));
 	        	
 	        	for(WebElement webelement : users)
 	        	{
@@ -47,7 +49,7 @@ public class HandlingStaleElement extends Baselibrary {
 	    
 	    
 	    
-	        }
+	 }
 	public static  boolean retryingFindClick(String xpathExpression) {
 	    boolean result = false;
 	    int attempts = 0;

@@ -30,19 +30,19 @@ public class Managetraveller extends Baselibrary {
 	
 		getWebElement("ManageTraveller").click();
 		
-String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/SA_UserSearch.aspx?Client_ID=24307";
-String actualurl=driver.getCurrentUrl();
-		Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
-		Reporter.log("Homepage Url Is Verified", true);	
+//String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/SA_UserSearch.aspx?Client_ID=24307";
+//String actualurl=driver.getCurrentUrl();
+	//	Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
+		//Reporter.log("Homepage Url Is Verified", true);	
 		
-	getWebElement("CreateEmployee").click();
+/**	getWebElement("CreateEmployee").click();
 		
 		
-String expectedurl1="https://corporatetravel.dnataindia.com/CAM/Admin/asp/"
-		+ "CA_userexecutive.aspx?MAX=MAX&Pos=1&SubAgentID=kMmXZj1dXNcpTcKX2VwTlQ%3d%3d";
-String actualurl1=driver.getCurrentUrl();
-Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
-Reporter.log("Homepage Url Is Verified", true);	
+//String expectedurl1="https://corporatetravel.dnataindia.com/CAM/Admin/asp/"
+	//	+ "CA_userexecutive.aspx?MAX=MAX&Pos=1&SubAgentID=kMmXZj1dXNcpTcKX2VwTlQ%3d%3d";
+//String actualurl1=driver.getCurrentUrl();
+//Assert.assertEquals(actualurl1,expectedurl1," Url is not Verified");
+//Reporter.log("Homepage Url Is Verified", true);	
 
 
          getWebElement("Empcode").sendKeys(Empcode);
@@ -153,7 +153,7 @@ WebElement project=getWebElement("Project");
  //        WebElement pp=getWebElement("Profilepic");	
    //    pp.sendKeys("E:\\Self Booking Tools\\extradata\\bmw.jpg");
         
-        getWebElement("Saveprofile").click(); 
+        getWebElement("Saveprofile").click(); **/
        driver.findElement(By.xpath("//a[contains(.,'"+EmpFirstName+" "+EmpLastName+"')]")).click();
       getWebElement("Passport").click();
 		
