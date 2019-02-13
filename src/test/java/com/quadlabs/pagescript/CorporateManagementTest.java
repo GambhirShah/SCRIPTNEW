@@ -21,7 +21,7 @@ public class CorporateManagementTest extends Baselibrary {
 	
     }
 	
-	
+
   @DataProvider
 	   	public Object[][] getData() throws Exception{
 	   		
@@ -54,20 +54,14 @@ public class CorporateManagementTest extends Baselibrary {
 	{
 	
     CorporateManagement.managedivision(division);
-    CorporateManagement.verifymanagedivision(driver);
+ //   CorporateManagement.verifymanagedivision(driver);
    
 	
 	}
-	 @Test(priority=2)
-
-		public void closeDivision() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 
 	
-	
+	@Test(priority=2)
+	public void closediv() throws Exception
+	{ CorporateManagement.closeDivision();}
 	
 	  @DataProvider
 	   	public Object[][] getData1() throws Exception{
@@ -107,14 +101,10 @@ public class CorporateManagementTest extends Baselibrary {
 			  State,City,Address,Branchemail,branchname,division);
 		  
 	  }
-	  @Test(priority=4)
-
-		public void closeBranch() throws Exception
-	{  
-		 getWebElement("BranchClose").click();	
-
-	}
-	 
+	  
+		@Test(priority=4)
+		public void closebranch() throws Exception
+		{ CorporateManagement.closeBranch();}
 	
 	  
 	  
@@ -149,14 +139,11 @@ public class CorporateManagementTest extends Baselibrary {
 	  {
 		  CorporateManagement.managedepartment(Branch,Departmentname,DepartmentEmail,DepartmentPhone,DepartmentFax,TravelBudget,Noofstaff,Nooftraveller);
 	  }
-	  @Test(priority=6)
-
-		public void closeDepartment() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 
+	  
+		@Test(priority=6)
+		public void closedepartment() throws Exception
+		{ CorporateManagement.closeDepartment() ;}
+	
 	  
 	  
 	  @DataProvider
@@ -190,17 +177,13 @@ public class CorporateManagementTest extends Baselibrary {
 		  CorporateManagement.managedesignation(designation);
 		  
 	  }
-	  @Test(priority=8)
-
-		public void closeDesignation() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 
+	  
+		@Test(priority=8)
+		public void closedesignation() throws Exception
+		{ CorporateManagement.closeDesignation() ;}
+	
 	 
 	
-	  
 	  @DataProvider
 	   	public Object[][] getDataEmployeegrade() throws Exception{
 	   		
@@ -225,6 +208,8 @@ public class CorporateManagementTest extends Baselibrary {
 	   		}
 	   		return data;
 		}
+	  
+	  
 	 @Test(dataProvider="getDataEmployeegrade",priority=9)
 	  public void EmployeeGrade (String Categorycode,String Categoryname) throws Exception
 	  
@@ -233,13 +218,11 @@ public class CorporateManagementTest extends Baselibrary {
 		  
 	  }
 	 
-	 	@Test(priority=10)
-
+	
+	 @Test(priority=10)
 		public void closegrade() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
+		{ CorporateManagement.closegrade() ;}
+		
 	 	
 	 	 
 	 	 @DataProvider
@@ -272,15 +255,13 @@ public class CorporateManagementTest extends Baselibrary {
 	 	 { CorporateManagement.managepassportvisaalert(VisaExpirationmonth, PassportExpirationmonth);}
 	 	 
 		 
-	 	@Test(priority=12)
+		 @Test(priority=12)
+			public void expirationalert() throws Exception
+			{ CorporateManagement.closeAlert() ;}
 
-		public void closeAlert() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
+		
 	
-	 @DataProvider
+		 	 @DataProvider
 	   	public Object[][] getTravelCategory() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -311,16 +292,13 @@ public class CorporateManagementTest extends Baselibrary {
 	 {
 		 CorporateManagement.managetravelcategory(TravelCategoryName);
 	 }
+	 
 	 @Test(priority=14)
-
-		public void travelcategory() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
+		public void category() throws Exception
+		{ CorporateManagement.travelcategory() ;}
 	 
 	 
-	 @DataProvider
+	   @DataProvider
 	   	public Object[][] getcostcenter() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -350,15 +328,13 @@ public class CorporateManagementTest extends Baselibrary {
 	 {
 		 CorporateManagement.managecostcentre(CostCentercode,CostCenterName);
 	 }
-		@Test(priority=16)
-
-		public void closecostcenter () throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 
-	 @DataProvider
+		
+	 @Test(priority=16)
+		public void costcenter() throws Exception
+		{ CorporateManagement.closecostcenter ();}
+		
+	
+	  @DataProvider
 	   	public Object[][] getoutpolicy() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -388,14 +364,11 @@ public class CorporateManagementTest extends Baselibrary {
 	 {
 		 CorporateManagement.predefinedreasonforoutpolicy(Reasoncode,Reasonname);
 	 }
-		@Test(priority=18)
-
-		public void closepolicy() throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 @DataProvider
+	
+	 @Test(priority=18)
+		public void outpolicyclose() throws Exception
+		{ CorporateManagement.closepolicy() ;}
+	  @DataProvider
 	   	public Object[][] getProject() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -425,14 +398,12 @@ public class CorporateManagementTest extends Baselibrary {
 	 {
 		 CorporateManagement.AddProject(Projectcode,ProjectName);
 	 }
-		@Test(priority=20)
+	 @Test(priority=20)
+		public void projectclose() throws Exception
+		{ CorporateManagement.closeproject () ;}
 
-		public void closeproject () throws Exception
-	{  
-		 getWebElement("Close").click();	
-
-	}
-	 @DataProvider
+		
+		 @DataProvider
 	   	public Object[][] getcorporatecard() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -465,15 +436,10 @@ public class CorporateManagementTest extends Baselibrary {
 	CorporateManagement.corporatecards(Billaddress, CardName, Nameoncard, CardNumber, expMonth, expyear,
 				 cardlimit, Currency, Bankcharge, Paymentperiod,Corporate);
 	 }
-	@Test(priority=22)
-
-	public void closebranch () throws Exception
-{  
-	 getWebElement("Close").click();	
-
-}
 	
-	@Test
-	public void verification()
-	{CorporateManagement.verifymanagedivision(driver);}
+	 @Test(priority=22)
+		public void corporatecard() throws Exception
+		{
+		 CorporateManagement.closecorporatecard () ;
+		 }
 }

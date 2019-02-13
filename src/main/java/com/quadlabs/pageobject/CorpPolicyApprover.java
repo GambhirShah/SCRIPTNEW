@@ -18,7 +18,7 @@ public class CorpPolicyApprover extends Baselibrary {
 			getWebElement("Addnew").click();
 			
 			
-			WebElement Product = getWebElement("Product");
+			WebElement Product = getWebElement("Productapp");
 			
 			Select Sel= new Select(Product);
 			
@@ -29,11 +29,11 @@ public class CorpPolicyApprover extends Baselibrary {
 		  
 				try{
 					
-					WebElement Addcategory=	getWebElement("TravelCategory");
+					WebElement Addcategory=	getWebElement("TravelCategoryapp");
 					
 					Select Sel1= new Select(Addcategory);
 					
-					Sel1.selectByValue("115");
+					Sel1.selectByVisibleText("Personal Travel");
 			  		
 					break; 
 				  }
@@ -131,8 +131,8 @@ public class CorpPolicyApprover extends Baselibrary {
 			
 			else if(noOfApovers.equals("3"))
 			{
-				
-				getWebElement("Approver1").sendKeys(Approver1);
+				listofautosuggestion(By.xpath("//div[contains(@id,'divInPolicyApprover1')]"),Approver1, Approver1,By.id("txtInPolicyApprover1"));	
+	/**			getWebElement("Approver1").sendKeys(Approver1);
 				Thread.sleep(3000);
 				List<WebElement> approvers = driver.findElements(By.id("divInPolicyApprover1"));
 				
@@ -150,7 +150,7 @@ public class CorpPolicyApprover extends Baselibrary {
 						break;
 					}
 					
-				}
+				}**/
 				
 				getWebElement("Approver2").sendKeys(Approver2);
 				Thread.sleep(3000);
@@ -188,24 +188,28 @@ public class CorpPolicyApprover extends Baselibrary {
 
 			if (noOfApovers.equals("1"))
 			{
-				 
-				getWebElement("outPolicyApprover1").sendKeys(Approver1);
+				listofautosuggestion(By.xpath("//div[contains(@id,'divOutPolicyApprover1')]"),Approver1, Approver1,By.id("txtOutPolicyApprover1"));
+	/**			getWebElement("outPolicyApprover1").sendKeys(Approver1);
 				
 				Thread.sleep(3000);
 				
+				
+				
 				List<WebElement> dapprovers = driver.findElements(By.name("divOutPolicyApprover1"));
 				
-				for(WebElement approver: dapprovers){
+				for(WebElement approver: dapprovers)
+				{
 					
 					System.out.println(approver.getText());
 					
-					if(approver.getText().contains(Approver1)){
+					if(approver.getText().contains(Approver1))
+					{
 						
 						approver.click();
 						break;
 					}
 					
-				}
+				}**/
 				
 			}
 			else if (noOfApovers.equals("2"))

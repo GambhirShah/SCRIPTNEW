@@ -36,17 +36,18 @@ public class DashBoardTest extends Baselibrary {
 		}
 	@Test(dataProvider="getData")
 	
-	public void searchEmployee(String Travellertype,String User_FirstName,String triptype,String depcity, String Descity ) throws Exception
+	public void searchEmployee(String Travellertype,String User_FirstName,String triptype,String depcity, 
+			String Descity,String depcityairport,
+			String Descityairport,String tripdate,String returndate,String email) throws Exception
 	{
 	LoginTest.validlogintest();
 	
-	DashBoard.search(Travellertype,User_FirstName, triptype, depcity,  Descity);
+	DashBoard.search(Travellertype,User_FirstName,
+			         triptype, depcity,  Descity
+			          ,depcityairport,Descityairport,
+			            tripdate,returndate,email);
 	
-	}
+	}	
 	
 	
-	
-		  
-		
-	   
 }

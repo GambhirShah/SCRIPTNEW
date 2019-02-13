@@ -20,20 +20,20 @@ public class CorporateManagement extends Baselibrary {
 	{
 		    getWebElement("Corporate").click();
 			getWebElement("Corporatemanagement").click();
-			String expectedurl="https://corporatetravel.dnataindia.com/Corporate/Asp/SubMenu.aspx?menu=company";
-			String actualurl=driver.getCurrentUrl();
-			Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
-			Reporter.log("Homepage Url Is Verified", true);	
-	    getWebElement("managedivision").click();
+	//		String expectedurl="https://corporatetravel.dnataindia.com/Corporate/Asp/SubMenu.aspx?menu=company";
+		//	String actualurl=driver.getCurrentUrl();
+	//		Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
+		//	Reporter.log("Homepage Url Is Verified", true);	
+		getWebElement("managedivision").click();
 	}
 		
-	public static void verifymanagedivision(WebDriver driver)
-	{String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/ViewBusinessType.aspx";
-	String actualurl=driver.getCurrentUrl();
-	Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
-	Reporter.log("Homepage Url Is Verified", true);
-	}
-		
+//	public static void verifymanagedivision(WebDriver driver)
+//	{String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/ViewBusinessType.aspx";
+//	String actualurl=driver.getCurrentUrl();
+//	Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
+//	Reporter.log("Homepage Url Is Verified", true);
+//	}
+	
     public static void managedivision(String division) throws Exception 
 		{
 			
@@ -42,7 +42,13 @@ public class CorporateManagement extends Baselibrary {
 			getWebElement("status").click();
 			getWebElement("Save").click();	
 		}
-	
+    
+	public static void closeDivision() throws Exception
+	{  
+		 getWebElement("Close").click();	
+
+	}
+	 
 		
 		public static void managebranch(String Telephone,
 				String Mobile,String Fax,String Contactname,String ContactEmailAdresss,
@@ -52,10 +58,10 @@ public class CorporateManagement extends Baselibrary {
 		{
 			
 			getWebElement("branch").click();
-			String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/CA_branch.aspx";
-			String actualurl=driver.getCurrentUrl();
-			Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
-			Reporter.log("Homepage Url Is Verified", true);
+	//		String expectedurl="https://corporatetravel.dnataindia.com/CAM/Admin/asp/CA_branch.aspx";
+	//		String actualurl=driver.getCurrentUrl();
+	//		Assert.assertEquals(actualurl,expectedurl,"Home Page Url is not Verified");
+	//		Reporter.log("Homepage Url Is Verified", true);
 			getWebElement("branchadd").click();
 			WebElement seldivision = getWebElement("Division");
 			Select sel = new Select(seldivision);
@@ -63,22 +69,30 @@ public class CorporateManagement extends Baselibrary {
 			getWebElement("corporateBranchname").sendKeys(branchname);
 			getWebElement("BranchEmail").sendKeys(Branchemail);
 			getWebElement("txtaddress").sendKeys(Address);
-			getWebElement("City").sendKeys(City);
-			getWebElement("State").sendKeys(State);
-			getWebElement("PostCode").sendKeys(Postcode);
+			getWebElement("BranchCity").sendKeys(City);
+			getWebElement("BranchState").sendKeys(State);
+			getWebElement("BranchPostCode").sendKeys(Postcode);
 			WebElement selcountry = getWebElement("country");
 			Select sel1 = new Select(selcountry);
 			sel1.selectByVisibleText(country);
-			getWebElement("Telephone").sendKeys(Telephone);
-			getWebElement("Mobile").sendKeys(Mobile);
-			getWebElement("Fax").sendKeys(Fax);
-			getWebElement("Contactname").sendKeys(Contactname);
-			getWebElement("ContactEmailadrress").sendKeys(ContactEmailAdresss);
-			getWebElement("ContactMobile").sendKeys(ContactMobile);
+			getWebElement("BranchTelephone").sendKeys(Telephone);
+			getWebElement("BranchMobile").sendKeys(Mobile);
+			getWebElement("BranchFax").sendKeys(Fax);
+			getWebElement("BranchContactname").sendKeys(Contactname);
+			getWebElement("BranchContactEmailadrress").sendKeys(ContactEmailAdresss);
+			getWebElement("BranchContactMobile").sendKeys(ContactMobile);
 			getWebElement("Save").click();
 			driver.switchTo().alert().accept();
 	
 		}
+		
+
+		public static void closeBranch() throws Exception
+	{  
+		 getWebElement("BranchClose").click();	
+
+	}
+	 
 		public static void managedepartment(String Branch,String Departmentname,String DepartmentEmail,String DepartmentPhone,
 				String DepartmentFax ,  String TravelBudget  ,String Noofstaff ,String Nooftraveller) throws Exception
 		{
@@ -96,22 +110,38 @@ public class CorporateManagement extends Baselibrary {
 			getWebElement("Nooftraveller").sendKeys(Nooftraveller);
 			getWebElement("Savebutton").click();
 			driver.switchTo().alert().accept();
+			Thread.sleep(1000);
 			
 		}
+		public static void closeDepartment() throws Exception
+		{  
+			
+			 getWebElement("Close").click();	
+
+		}
+		
 		
 		public static void managedesignation(String Designation) throws Exception
 		{
 			getWebElement("Managedesignation").click();
 			getWebElement("addbutton").click();
-			getWebElement("Designation").sendKeys(Designation);
+			
+			Thread.sleep(2000);
+			getWebElement("Designationtext").sendKeys(Designation);
+			
 			getWebElement("Save").click();
 			driver.switchTo().alert().accept();
 			
 			
 			
 		}
+		public static void closeDesignation() throws Exception
+		{  
+			 getWebElement("Close").click();	 
+		}
 		
-		public static void manageEmployeegrade(String Categorycode,String Categoryname) throws Exception
+
+			public static void manageEmployeegrade(String Categorycode,String Categoryname) throws Exception
 		{  
 			getWebElement("ManageEmployeeGradeCategory").click();
 		    getWebElement("Addnew1").click();
@@ -119,11 +149,17 @@ public class CorporateManagement extends Baselibrary {
 			getWebElement("Categoryname").sendKeys(Categoryname);
 			getWebElement("ChkBookForfamily").click();
 			getWebElement("ChkBookForPersonal").click();
-			
+			Thread.sleep(2000);
 	
 			getWebElement("AddButton1").click();
 			driver.switchTo().alert().accept();
 		}
+		
+		public static void closegrade() throws Exception
+		{  
+			 getWebElement("Close").click();	
+
+		} 
 		
 		public static void managepassportvisaalert(String VisaExpirationmonth,String PassportExpirationmonth) throws Exception
 		
@@ -134,9 +170,13 @@ public class CorporateManagement extends Baselibrary {
 		getWebElement("Savebuttonexpiration").click();
 		getWebElement("BtnClose").click();
 		}
-	
+		public static void closeAlert() throws Exception
+		{  
+			 getWebElement("Close").click();	
+
+		}
 		
-		public static void managetravelcategory(String TravelCategoryName) throws Exception
+			public static void managetravelcategory(String TravelCategoryName) throws Exception
 		{
 			getWebElement("ManageTravelCategory").click();
 			getWebElement("Addtravelcategory").click();
@@ -145,9 +185,17 @@ public class CorporateManagement extends Baselibrary {
 				getWebElement("ApplyTravelpolicy").click();
 				getWebElement("Status").click();
 				getWebElement("AddCategory").click();
+				Thread.sleep(1000);
 				driver.switchTo().alert().accept();
 		}
-	
+		
+		public static void travelcategory() throws Exception
+		{  
+			 getWebElement("Close").click();	
+
+		}
+		 
+		
 	public static void managecostcentre(String CostCentercode,String CostCenterName) throws Exception
 	{
 		getWebElement("costcenter").click();
@@ -156,12 +204,19 @@ public class CorporateManagement extends Baselibrary {
 		getWebElement("CostCenterName").sendKeys(CostCenterName);
 		getWebElement("Status").click();
 	    getWebElement("Addnewcostcenter").click();
-	    }                      
-	public static void predefinedreasonforoutpolicy(String Reasoncode,String Reasonname) throws Exception
+	    } 
+	
+	public static  void closecostcenter () throws Exception
+	{  
+		 getWebElement("Close").click();	
+
+	}
+	 
+		public static void predefinedreasonforoutpolicy(String Reasoncode,String Reasonname) throws Exception
 	{
 		getWebElement("outpolicyreason").click();
 		getWebElement("AddNewPolicyreason").click();
-		WebElement Lang=getWebElement("Language");
+		WebElement Lang=getWebElement("Languagepolicy");
 		Select SelLang= new Select(Lang);
 		SelLang.selectByVisibleText("English");
 		getWebElement("Reasoncode").sendKeys(Reasoncode);
@@ -170,8 +225,15 @@ public class CorporateManagement extends Baselibrary {
 		getWebElement("Addoutpolicy").click();
 	driver.switchTo().alert().accept();	
 	}
+	
+
+	public static void closepolicy() throws Exception
+{  
+	 getWebElement("Close").click();	
+
+}
 	 
-	public static void AddProject(String Projectcode,String ProjectName) throws Exception
+		public static void AddProject(String Projectcode,String ProjectName) throws Exception
 	{
 		getWebElement("manageproject").click();
 		getWebElement("AddProject").click();				
@@ -180,7 +242,13 @@ public class CorporateManagement extends Baselibrary {
 		getWebElement("Projectstatus").click();
 		getWebElement("AddProject").click();
 		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
    }
+	public static void closeproject () throws Exception
+	{  
+		 getWebElement("Close").click();	
+
+	}
 	
 	public static void corporatecards(String Billaddress,
 			String Cardname,String Nameoncard,
@@ -196,7 +264,7 @@ Selcard.selectByVisibleText("Debit Card");
 
 WebElement cardtype =getWebElement("CardType");
 Select Selcardtype =new Select(cardtype);
-Selcardtype.selectByVisibleText("Debit Card");
+Selcardtype.selectByVisibleText("VISA");
 
 getWebElement("NameonCArd").sendKeys(Nameoncard);
 getWebElement("CardNumber").sendKeys(CardNumber);
@@ -235,4 +303,9 @@ getWebElement("CardLimit").sendKeys(cardlimit);
     	Thread.sleep(4000);
     	getWebElement("SaveCard1").click();
     	}
+	public static void closecorporatecard () throws Exception
+	{  
+		 getWebElement("Close").click();	
+
 	}
+}
