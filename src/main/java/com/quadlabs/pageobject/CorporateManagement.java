@@ -45,7 +45,7 @@ public class CorporateManagement extends Baselibrary {
     
 	public static void closeDivision() throws Exception
 	{  
-		 getWebElement("Close").click();	
+		 getWebElement("divClose").click();	
 
 	}
 	 
@@ -116,7 +116,7 @@ public class CorporateManagement extends Baselibrary {
 		public static void closeDepartment() throws Exception
 		{  
 			
-			 getWebElement("Close").click();	
+			 getWebElement("departmentClose").click();	
 
 		}
 		
@@ -137,7 +137,7 @@ public class CorporateManagement extends Baselibrary {
 		}
 		public static void closeDesignation() throws Exception
 		{  
-			 getWebElement("Close").click();	 
+			 getWebElement("designationClose").click();	 
 		}
 		
 
@@ -157,7 +157,7 @@ public class CorporateManagement extends Baselibrary {
 		
 		public static void closegrade() throws Exception
 		{  
-			 getWebElement("Close").click();	
+			 getWebElement("grade1close").click();	
 
 		} 
 		
@@ -191,7 +191,7 @@ public class CorporateManagement extends Baselibrary {
 		
 		public static void travelcategory() throws Exception
 		{  
-			 getWebElement("Close").click();	
+			driver.findElement(By.xpath("//div[@class='col-md-12 common_box']/div/input[@class='btn btn-gray btn-lg']")).click();
 
 		}
 		 
@@ -208,7 +208,7 @@ public class CorporateManagement extends Baselibrary {
 	
 	public static  void closecostcenter () throws Exception
 	{  
-		 getWebElement("Close").click();	
+		 getWebElement("costcenterClose").click();	
 
 	}
 	 
@@ -229,7 +229,7 @@ public class CorporateManagement extends Baselibrary {
 
 	public static void closepolicy() throws Exception
 {  
-	 getWebElement("Close").click();	
+	 getWebElement("predefineClose").click();	
 
 }
 	 
@@ -246,7 +246,7 @@ public class CorporateManagement extends Baselibrary {
    }
 	public static void closeproject () throws Exception
 	{  
-		 getWebElement("Close").click();	
+		 getWebElement("projectclose").click();	
 
 	}
 	
@@ -305,7 +305,7 @@ getWebElement("CardLimit").sendKeys(cardlimit);
     	}
 	public static void closecorporatecard () throws Exception
 	{  
-		 getWebElement("Close").click();	
+		 getWebElement("Cardclose").click();	
 
 	}
 }

@@ -10,6 +10,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebElement;
 
 import com.quadlabs.generic.Baselibrary;
+import com.quadlabs.generic.GetPropertyValue;
 
 
 
@@ -52,7 +53,7 @@ public class LoginPage extends Baselibrary {
 	
 	public void login(String username, String password ) throws Exception
 	{
-		
+		driver.get(GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", "testUrl")); 
 		or = new Properties();
 	
 		File file = new File(System.getProperty("user.dir")+"\\testdata\\config.properties");

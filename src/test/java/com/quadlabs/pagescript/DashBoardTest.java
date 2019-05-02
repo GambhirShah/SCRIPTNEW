@@ -1,12 +1,12 @@
 package com.quadlabs.pagescript;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.quadlabs.generic.Baselibrary;
 import com.quadlabs.generic.ExcelUtilities;
-
 import com.quadlabs.pageobject.DashBoard;
+
+import org.testng.annotations.DataProvider;
 
 
 public class DashBoardTest extends Baselibrary {

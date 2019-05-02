@@ -40,8 +40,15 @@ import java.util.concurrent.TimeUnit;
 		public static void explicitWaitForVisibilities(WebDriver driver,int time,List<WebElement> ele)
 		{
 			WebDriverWait wait =new WebDriverWait(driver,time);
+
 			wait.until(ExpectedConditions.visibilityOfAllElements(ele));
 			
+			
+			
 		}
+		
+		
+		
+		
 	}
 

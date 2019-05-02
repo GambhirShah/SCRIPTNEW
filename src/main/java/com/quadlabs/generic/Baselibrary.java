@@ -14,16 +14,24 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.relevantcodes.extentreports.HTMLReporter;
 
 public class Baselibrary {
 	
@@ -31,6 +39,32 @@ public class Baselibrary {
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
 	public static Properties or;
+	public ExtentHtmlReporter htmlreporter;
+	public ExtentReports extent;
+	public ExtentTest test;
+	
+	@BeforeTest
+	public void setextent()
+	{
+		htmlreporter= new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/myReport.html");
+		htmlreporter.config().setDocumentTitle("AutomationReport");
+		
+		htmlreporter.config().setTheme(Theme.DARK);
+		
+		extent = new ExtentReports();
+		extent.attachReporter(htmlreporter);
+		extent.setSystemInfo("HostName","LocalHost");
+		extent.setSystemInfo("OS", "Windows10");
+		
+		
+		
+	}
+	
+	@AfterTest
+	public void endReport(){
+		
+		extent.flush();
+	}
 	
 	
 	@Parameters("browser")
@@ -55,20 +89,26 @@ public class Baselibrary {
 		 {
 		
 		    		System.out.println("Firefox browser");
-					System.setProperty("webdriver.firefox.marionette",  System.getProperty("user.dir")+"\\exefiles\\geckodriver.exe");
-					DesiredCapabilities dc = DesiredCapabilities.firefox();
-					dc.setCapability("marionette", true);
+		    		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\exefiles\\geckodriver.exe");
+			//		DesiredCapabilities dc = DesiredCapabilities.firefox();
+			//		dc.setCapability("marionette", true);
 					driver = new FirefoxDriver();
 					driver.manage().window().maximize();
 		
 		 }
-	  
 		 else if(Browsername.equalsIgnoreCase("IE"))
-		 
 		 { 
 			 System.setProperty("webdriver.ie.driver", System.getProperty("user.dir")+"\\exefiles\\IEDriverServer.exe");
 			 driver = new InternetExplorerDriver();
 			 Reporter.log("IE  launched",true);
+		 } 
+		 else if(Browsername.equalsIgnoreCase("incognitochrome"))
+	     { 
+			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\exefiles\\chrome\\chromedriver.exe");
+			 ChromeOptions option= new ChromeOptions();
+			 option.addArguments("-incognito");
+			 driver= new ChromeDriver(option);
+			 Reporter.log("incognitochrome launched",true);
 		 } 
 	  
 		 	e_driver = new EventFiringWebDriver(driver);
@@ -85,7 +125,7 @@ public class Baselibrary {
 			
 			driver.manage().deleteAllCookies();
 		
-		 	driver.get(GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", "testUrl")); 	
+		 		
 		 	
       }
 
@@ -153,11 +193,14 @@ public class Baselibrary {
 	
 
 		
-		public  static List<WebElement> listofautosuggestion(By suggestiontxt, String txt,
-				String city_name, By d) throws InterruptedException {
+		public  static List<WebElement> listofautosuggestion(By suggestiontxt, String txt,String city_name, By d) throws InterruptedException {
+			
 			driver.findElement(d).sendKeys(txt);
+		
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
 			List<WebElement> autosuggestions = driver.findElements(suggestiontxt);
+			
 			for (WebElement autosuggestion : autosuggestions) {
 				System.out.println(autosuggestion.getText());
 				Thread.sleep(3000);
@@ -193,8 +236,11 @@ public class Baselibrary {
 		
 		System.out.println("tripDateA[2]"+tripDateA[2]);
 		
-		WebElement currentmonth= getWebElement("firstmonth");
 		
+	//	WebElement currentmonth= getWebElement("firstmonth");
+		JavascriptExecutor currmon= (JavascriptExecutor) driver;
+	WebElement 	currentmonth=driver.findElement(By.xpath("//div[@class='datepick-month first']/div[@class='datepick-month-header']"));
+	currmon.executeScript("arguments[0].click();", currentmonth);
           String value= currentmonth.getText();
           
           System.out.println(currentmonth.getText());
@@ -268,6 +314,7 @@ public class Baselibrary {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
         	
         	js.executeScript("arguments[0].click();",nextmonths);
+        
         	
           }
           

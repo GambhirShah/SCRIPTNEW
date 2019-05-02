@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -35,7 +36,7 @@ public class Managetraveller extends Baselibrary {
 	//	Assert.assertEquals(actualurl,expectedurl," Url is not Verified");
 		//Reporter.log("Homepage Url Is Verified", true);	
 		
-/**	getWebElement("CreateEmployee").click();
+	getWebElement("CreateEmployee").click();
 		
 		
 //String expectedurl1="https://corporatetravel.dnataindia.com/CAM/Admin/asp/"
@@ -45,7 +46,7 @@ public class Managetraveller extends Baselibrary {
 //Reporter.log("Homepage Url Is Verified", true);	
 
 
-         getWebElement("Empcode").sendKeys(Empcode);
+    /**     getWebElement("Empcode").sendKeys(Empcode);
        
 WebElement title=getWebElement("Title");
          
@@ -63,9 +64,9 @@ WebElement title=getWebElement("Title");
          
          getWebElement("Emailid").sendKeys(Emailid);
          
-   WebElement branch=      getWebElement("Branch");
-            Select Br= new Select(branch);
-                   Br.selectByVisibleText(branchname);
+ //  WebElement branch=      getWebElement("Branch");
+    //        Select Br= new Select(branch);
+      //             Br.selectByVisibleText(branchname);
      
      
 WebElement lang=getWebElement("Language");
@@ -145,16 +146,23 @@ WebElement project=getWebElement("Project");
          
          getWebElement("Administrator").click();
          getWebElement("Travellertype").click();
-         getWebElement("TravellerTypeCIP").click();
+         getWebElement("TravellerTypeCIP").click();**/
+	
+	
         
-  //   WebElement digsign=getWebElement("uploaddigsign");
-    //  digsign.sendKeys("E:\\Self Booking Tools\\extradata\\bmw.jpg");
+     WebElement digsign=getWebElement("uploaddigsign");
+     Actions Act =new Actions(driver);
+ 	Act.moveToElement(digsign).perform();
+     digsign.sendKeys("E:\\Self Booking Tools\\extradata\\bmw.jpg");
         
- //        WebElement pp=getWebElement("Profilepic");	
-   //    pp.sendKeys("E:\\Self Booking Tools\\extradata\\bmw.jpg");
+      WebElement pp=getWebElement("Profilepic");	
+      
+      Actions Act1 =new Actions(driver);
+   	Act.moveToElement(pp).perform();
+     pp.sendKeys("E:\\Self Booking Tools\\extradata\\bmw.jpg");
         
-        getWebElement("Saveprofile").click(); **/
-       driver.findElement(By.xpath("//a[contains(.,'"+EmpFirstName+" "+EmpLastName+"')]")).click();
+        getWebElement("Saveprofile").click(); 
+ /**      driver.findElement(By.xpath("//a[contains(.,'"+EmpFirstName+" "+EmpLastName+"')]")).click();
       getWebElement("Passport").click();
 		
 	}
@@ -336,9 +344,40 @@ getWebElement("Addvisdetail").click();
 
 	}
 	
-	public static void dependentdetail() throws Exception
+	public static void dependentdetail(String Dependentname,String Middlename,String Lastname,String DOBYear,String DOBMonth,String DobDate) throws Exception
 	{
 		getWebElement("DependentDetail").click();
+		getWebElement("Dependentname").sendKeys(Dependentname);
+		getWebElement("Middlename").sendKeys(Middlename);
+		getWebElement("LastName").sendKeys(Lastname);
+		List<WebElement> Dobyear =  driver.findElements(By.xpath("//div[@class='datepick-popup']//select[@class='datepick-month-year'and @title='Change the year']/option"));  
+		for(WebElement webelement : Dobyear)
+		{ System.out.println(webelement.getText());
+		  System.out.println(DOBYear);
+			if(webelement.getText().contains(DOBYear))
+			{
+				
+				webelement.click();
+				break;
+	       	}
+	     }
+		List<WebElement> Dobmonth =  driver.findElements(By.xpath("//*[@title='Change the month']/option"));  
+		
+		for(WebElement webelement : Dobmonth)
+		{
+			
+			System.out.println(webelement.getText());
+		
+			if(webelement.getText().contains(DOBMonth))
+			{
+				
+				webelement.click();
+				break;
+	       	}
+	     }
+		driver.findElement(By.xpath("//a[contains(.,'"+DobDate+"')]")).click();
+		
+		getWebElement("Relation").click();**/
 	}
 	}
 	

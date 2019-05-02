@@ -9,17 +9,24 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-public class ScreenShot {
+
+
+
+
+public class ScreenShot 
+{
 WebDriver driver;
-//final static String ESCAPE_PROPERTY = "org.uncommons.reportng.escape-output";
 public static String imgname = null;
 
 
-public static void getSnapShot(WebDriver wb, String testcaseName) throws Exception {
-  try {
+public static void getSnapShot(WebDriver wb, String testcaseName) throws Exception 
+{
+  try 
+  {
   String imgpath=System.getProperty("user.dir").concat("\\Screenshot\\"+testcaseName);
   File f=new File(imgpath);
-  if(!f.exists())   {
+  if(!f.exists())   
+    {
       f.mkdir();
     }   
     Date d=new Date();
@@ -34,7 +41,8 @@ public static void getSnapShot(WebDriver wb, String testcaseName) throws Excepti
     FileUtils.copyFile(srcfile, destFile);
 
     }
-  catch(Exception e) {
+  catch(Exception e)
+  {
       e.getMessage();
   }
 }

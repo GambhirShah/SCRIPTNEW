@@ -46,7 +46,7 @@ public static void managetraveller(String Empcode ,String Title,String EmpFirstN
 			departme,designe,emplgradecategory,cocenter,Proj);
 }
 	
- @DataProvider
+/** @DataProvider
 	   	public Object[][] getData1() throws Exception{
 	   		
 		  ExcelUtilities.excelCorporateReader("exceldata1");
@@ -114,5 +114,7 @@ public static void managetraveller(String Empcode ,String Title,String EmpFirstN
 		Managetraveller.Visadetail(visa, country, VisaType, issueYear, issueMonth, issueDate, VisaexpYear, expMonth,expDate);
 		
 	}
+	
+	**/
 
 }

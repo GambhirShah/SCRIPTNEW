@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="browser" value="chrome"/>
   <listeners>
     <listener class-name="com.quadlabs.generic.ExtentReporterNG"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.quadlabs.pagescript.Mangaetravelpolicytest">
+      <class name="com.quadlabs.pagescript.FlightBookingTest">
         <methods>
+          <include name="Farecategorybooking" invocation-numbers="0"/>
           <include name="precondition"/>
           <include name="postcondition"/>
-          <include name="policy" invocation-numbers="1"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.Mangaetravelpolicytest -->
+      </class> <!-- com.quadlabs.pagescript.FlightBookingTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

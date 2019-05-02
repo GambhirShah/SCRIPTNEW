@@ -47,11 +47,7 @@ public static void excelCorporateReader(String Excelkey) throws Exception{
 			
 			XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
 			
-			XSSFSheet sheet = wb.getSheet(SheetName);
-			
-			XSSFRow row = sheet.getRow(0);
-			
-			int col = row.getLastCellNum();
+			int col= wb.getSheet(SheetName).getRow(0).getLastCellNum();
 			
 			return col;
 		}
@@ -64,15 +60,15 @@ public static void excelCorporateReader(String Excelkey) throws Exception{
 				 
 		try {
 					
-		String exceldata = GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", Excelkey);
+	String exceldata = GetPropertyValue.getpropertyvalue(System.getProperty("user.dir")+"\\testdata\\config.properties", Excelkey);
 		
-		FileInputStream ExcelFileToRead = new FileInputStream(exceldata);
+	FileInputStream ExcelFileToRead = new FileInputStream(exceldata);
 
-		XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
+	XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
 		
-		DataFormatter formatter = new DataFormatter();
+	DataFormatter formatter = new DataFormatter();
 		
-		value = formatter.formatCellValue(wb.getSheet(sheetname).getRow(rownum).getCell(cellnum));
+	value = formatter.formatCellValue(wb.getSheet(sheetname).getRow(rownum).getCell(cellnum));
 		
 		} 
 		catch (IOException e )

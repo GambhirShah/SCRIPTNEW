@@ -8,6 +8,7 @@ public class EnterDashboard  {
 		public void verifytitle(WebDriver driver){
 			String expTitle="Corporate Dashboard";
 			String actTitle=driver.getTitle();
+			System.out.println(expTitle);
 			Assert.assertEquals(actTitle,expTitle,"Home Page Title is not Verified");
 			Reporter.log("Homepage Title Is Verified", true);
 		}

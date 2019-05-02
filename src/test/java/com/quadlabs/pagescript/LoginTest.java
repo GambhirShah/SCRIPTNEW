@@ -46,7 +46,7 @@ public class LoginTest extends Baselibrary{
 		
 //		ed.verifylogintest(driver);
 		
-		ed.verifytitle(driver);
+//		ed.verifytitle(driver);
 		
 	}
 }

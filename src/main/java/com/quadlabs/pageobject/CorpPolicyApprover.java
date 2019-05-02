@@ -33,7 +33,7 @@ public class CorpPolicyApprover extends Baselibrary {
 					
 					Select Sel1= new Select(Addcategory);
 					
-					Sel1.selectByVisibleText("Personal Travel");
+					Sel1.selectByVisibleText("Business Travel");
 			  		
 					break; 
 				  }
@@ -131,8 +131,8 @@ public class CorpPolicyApprover extends Baselibrary {
 			
 			else if(noOfApovers.equals("3"))
 			{
-				listofautosuggestion(By.xpath("//div[contains(@id,'divInPolicyApprover1')]"),Approver1, Approver1,By.id("txtInPolicyApprover1"));	
-	/**			getWebElement("Approver1").sendKeys(Approver1);
+		//		listofautosuggestion(By.xpath("//div[contains(@id,'divInPolicyApprover1')]"),Approver1, Approver1,By.id("txtInPolicyApprover1"));	
+		getWebElement("Approver1").sendKeys(Approver1);
 				Thread.sleep(3000);
 				List<WebElement> approvers = driver.findElements(By.id("divInPolicyApprover1"));
 				
@@ -150,7 +150,7 @@ public class CorpPolicyApprover extends Baselibrary {
 						break;
 					}
 					
-				}**/
+				}
 				
 				getWebElement("Approver2").sendKeys(Approver2);
 				Thread.sleep(3000);
@@ -188,8 +188,8 @@ public class CorpPolicyApprover extends Baselibrary {
 
 			if (noOfApovers.equals("1"))
 			{
-				listofautosuggestion(By.xpath("//div[contains(@id,'divOutPolicyApprover1')]"),Approver1, Approver1,By.id("txtOutPolicyApprover1"));
-	/**			getWebElement("outPolicyApprover1").sendKeys(Approver1);
+			listofautosuggestion(By.xpath("//div[contains(@id,'divOutPolicyApprover1')]"),Approver1, Approver1,By.id("txtOutPolicyApprover1"));
+	/**		getWebElement("outPolicyApprover1").sendKeys(Approver1);
 				
 				Thread.sleep(3000);
 				

@@ -105,8 +105,8 @@ public class DashBoard extends Baselibrary
 			getWebElement("oneway").click();
 			
 
-			listofautosuggestion(By.xpath("//*[@id='divDepartureCity']/p"),depcity, depcityairport,By.xpath("//*[@id='txtDepartureCity']"));
-			listofautosuggestion(By.xpath("//*[@id='divDestinationCity']/p"),Descity, Descityairport,By.xpath("//*[@id='txtDestinationCity']"));
+	listofautosuggestion(By.xpath("//*[@id='divDepartureCity']/p"),depcity, depcityairport,By.xpath("//*[@id='txtDepartureCity']"));
+listofautosuggestion(By.xpath("//*[@id='divDestinationCity']/p"),Descity, Descityairport,By.xpath("//*[@id='txtDestinationCity']"));
 				
 
 		
@@ -252,8 +252,13 @@ public class DashBoard extends Baselibrary
 				 System.out.println("No destinations city found");}
 			  }
 		 }
+		 
+        JavascriptExecutor SearchClick = (JavascriptExecutor) driver;
+        
+        WebElement serchclick = driver.findElement(By.xpath("//input[contains(@id,'btnSearchFlight')]"));
+        
+        SearchClick.executeScript("arguments[0].click();", serchclick);
 		
-		getWebElement("Searchdashboardclick").click();
         }     
 
 	

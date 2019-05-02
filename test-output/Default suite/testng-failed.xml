@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.quadlabs.pagescript.Mangaetravelpolicytest">
+      <class name="com.quadlabs.pagescript.hotel.HotelbookingTest">
         <methods>
+          <include name="Dashboarddata"/>
           <include name="precondition"/>
+          <include name="hotelbooking"/>
           <include name="postcondition"/>
-          <include name="policy"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.Mangaetravelpolicytest -->
+      </class> <!-- com.quadlabs.pagescript.hotel.HotelbookingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
