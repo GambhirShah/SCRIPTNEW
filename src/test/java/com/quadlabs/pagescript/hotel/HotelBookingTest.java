@@ -1,5 +1,6 @@
 package com.quadlabs.pagescript.hotel;
 
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,6 +13,7 @@ public class HotelBookingTest extends Baselibrary {
 
 	
 	
+
 	
 	  @DataProvider
 	   	public Object[][] getData() throws Exception{
@@ -51,4 +53,7 @@ public class HotelBookingTest extends Baselibrary {
 		 NOofroom , Adultsinroom1, Adultsinroom2,
 			Adultsinroom3, Adultsinroom4, Adultsinroom5);
 	HotelBooking.bookinghotel(i);
-}}
+}
+	
+	
+}

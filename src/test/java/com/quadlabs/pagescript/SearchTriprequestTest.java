@@ -49,6 +49,7 @@ public class SearchTriprequestTest extends Baselibrary {
 			         triptype, depcity,  Descity
 			          ,depcityairport,Descityairport,
 			            tripdate,returndate,email);
+	test = report.createTest("Manage search  test");
 	SearchTripREquest.triprequestviasearch();
 	
 	}	

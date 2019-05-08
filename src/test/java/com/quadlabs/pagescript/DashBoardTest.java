@@ -41,11 +41,12 @@ public class DashBoardTest extends Baselibrary {
 			String Descityairport,String tripdate,String returndate,String email) throws Exception
 	{
 	LoginTest.validlogintest();
-	
+	test = report.createTest("open dashboard");
 	DashBoard.search(Travellertype,User_FirstName,
 			         triptype, depcity,  Descity
 			          ,depcityairport,Descityairport,
 			            tripdate,returndate,email);
+	 
 	
 	}	
 	

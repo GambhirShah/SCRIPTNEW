@@ -86,7 +86,7 @@ public class FlightBookPageTriprequesttest extends Baselibrary {
 		@Test(dataProvider="getData1",priority=2)
 		public static void Farecategorybooking(String Category) throws Exception
 		{
-			
+			test = report.createTest("Create trip request");
 			FlightBookPageTriprequest.flightBookpagetriprequest(Category);
 		}
 	}

@@ -3,7 +3,7 @@
 <suite name="Suite">
 
 <listeners>
-		<listener class-name="com.quadlabs.generic.ExtentReporterNG" />
+		<listener class-name="com.quadlabs.generic.WebEventListener" />
 	</listeners>
   
   <parameter name="browser" value ="chrome"/>

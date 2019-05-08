@@ -3,17 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <parameter name="browser" value="chrome"/>
   <listeners>
-    <listener class-name="com.quadlabs.generic.ExtentReporterNG"/>
+    <listener class-name="com.quadlabs.generic.WebEventListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test">
     <classes>
-      <class name="com.quadlabs.pagescript.FlightBookingTest">
-        <methods>
-          <include name="Farecategorybooking" invocation-numbers="0"/>
-          <include name="precondition"/>
-          <include name="postcondition"/>
-        </methods>
-      </class> <!-- com.quadlabs.pagescript.FlightBookingTest -->
+      <class name="com.quadlabs.pagescript.hotel.LoginHotelTest"/>
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test -->
 </suite> <!-- Failed suite [Suite] -->

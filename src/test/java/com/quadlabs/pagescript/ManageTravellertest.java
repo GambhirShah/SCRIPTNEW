@@ -40,6 +40,8 @@ public static void managetraveller(String Empcode ,String Title,String EmpFirstN
 		String departme,String designe,String emplgradecategory,String cocenter,String Proj) throws Exception
 {
 	LoginTest.validlogintest();
+	
+	test = report.createTest("Manage traveller test");
 	Managetraveller.corporatemanagement(Empcode ,Title, EmpFirstName, EmpLastName,
 			 Username,Emailid, branchname,Language,Address,
 			City, State,Postcode,phoneCountrycode, Phone,MobCountrycode, Mobileno, Remark,

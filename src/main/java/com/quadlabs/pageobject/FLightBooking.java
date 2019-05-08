@@ -17,6 +17,8 @@ public class FLightBooking extends Baselibrary{
 	
 	public static void farecategorybooking(String Category) throws Exception
 	{
+		
+		
 		WebDriverWait wait =new WebDriverWait(driver,40);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='progress-bar progress-bar-striped active']")));
 		

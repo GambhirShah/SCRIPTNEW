@@ -18,7 +18,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -27,11 +26,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentKlovReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.relevantcodes.extentreports.HTMLReporter;
 
 public class Baselibrary {
 	
@@ -41,31 +41,15 @@ public class Baselibrary {
 	public static Properties or;
 	public ExtentHtmlReporter htmlreporter;
 	public ExtentReports extent;
-	public ExtentTest test;
+
 	
-	@BeforeTest
-	public void setextent()
-	{
-		htmlreporter= new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/myReport.html");
-		htmlreporter.config().setDocumentTitle("AutomationReport");
-		
-		htmlreporter.config().setTheme(Theme.DARK);
-		
-		extent = new ExtentReports();
-		extent.attachReporter(htmlreporter);
-		extent.setSystemInfo("HostName","LocalHost");
-		extent.setSystemInfo("OS", "Windows10");
-		
-		
-		
-	}
+	public static ExtentReports report = new ExtentReports();
+	public static ExtentKlovReporter klovReport = new ExtentKlovReporter();
+	public static ExtentTest test;
+	public static ExtentHtmlReporter htmlReporter =
+	new ExtentHtmlReporter("E:\\Self Booking Tools\\HtmlReport\\Report.html");
 	
-	@AfterTest
-	public void endReport(){
-		
-		extent.flush();
-	}
-	
+
 	
 	@Parameters("browser")
 	@BeforeClass
@@ -81,6 +65,9 @@ public class Baselibrary {
 			 
 			 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\exefiles\\chrome\\chromedriver.exe");
 	         driver = new ChromeDriver();
+	         
+	       
+	         
 		     Reporter.log("chrome launched",true);
 		     }
 	
@@ -124,8 +111,15 @@ public class Baselibrary {
 			driver.manage().window().maximize();
 			
 			driver.manage().deleteAllCookies();
-		
-		 		
+			klovReport.loadConfig("E:\\Self Booking Tools\\testdata\\application.properties");
+			klovReport.initMongoDbConnection("localhost", 27017);
+			klovReport.setProjectName("SBT");
+			klovReport.setReportName("Staging Server");
+			klovReport.initKlovServerConnection("http://localhost");
+			htmlReporter.config().enableTimeline(true);
+			htmlReporter.config().setAutoCreateRelativePathMedia(true);
+			report.attachReporter(klovReport, htmlReporter);
+			
 		 	
       }
 
@@ -152,8 +146,12 @@ public class Baselibrary {
 		}
 		          }
 	 
+		 
+		
     //  driver.close();
      // Reporter.log("browser closed", true);
+		
+		 test.getExtent().flush();
 	 }
 	 
 	

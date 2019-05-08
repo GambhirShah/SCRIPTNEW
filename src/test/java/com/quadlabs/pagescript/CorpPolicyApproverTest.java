@@ -40,6 +40,7 @@ public class CorpPolicyApproverTest extends Baselibrary {
 	public static void policyapprover() throws Exception
 	
 	{
+		 test = report.createTest("create policy approver ");
 		LoginTest.validlogintest();
 		 
 	}

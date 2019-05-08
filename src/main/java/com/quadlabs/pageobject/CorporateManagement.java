@@ -18,8 +18,12 @@ public class CorporateManagement extends Baselibrary {
 	
 	public static void corporate() throws Exception 
 	{
+		
+		
 		    getWebElement("Corporate").click();
 			getWebElement("Corporatemanagement").click();
+			
+			
 	//		String expectedurl="https://corporatetravel.dnataindia.com/Corporate/Asp/SubMenu.aspx?menu=company";
 		//	String actualurl=driver.getCurrentUrl();
 	//		Assert.assertEquals(actualurl,expectedurl," Url is not Verified");

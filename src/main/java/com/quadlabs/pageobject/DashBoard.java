@@ -30,7 +30,7 @@ public class DashBoard extends Baselibrary
 	public static void search  (String	Travellertype,String User_FirstName,String triptype,String depcity, 
 			String Descity,String depcityairport, String Descityairport,String tripdate,String returndate,String email) throws Exception
 	{
-		
+	
 		or = new Properties();
 		
 		File	file = new File(System.getProperty("user.dir")+"\\testdata\\config.properties");

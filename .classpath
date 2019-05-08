@@ -34,5 +34,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Anurag.Upadhyay/Downloads/jacob-1.19"/>
+	<classpathentry kind="lib" path="E:/Self Booking Tools/testdata/klov-0.2.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

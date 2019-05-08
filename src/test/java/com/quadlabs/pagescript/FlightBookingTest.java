@@ -51,6 +51,7 @@ public class FlightBookingTest extends Baselibrary {
 			          ,depcityairport,Descityairport,
 			            tripdate,returndate,email);
 	
+	
 	}	
 	
 	
@@ -86,6 +87,7 @@ public class FlightBookingTest extends Baselibrary {
 	public static void Farecategorybooking(String Category) throws Exception
 	{
 		
+		test = report.createTest("open booking test");
 		FLightBooking.farecategorybooking(Category);
 	}
 }

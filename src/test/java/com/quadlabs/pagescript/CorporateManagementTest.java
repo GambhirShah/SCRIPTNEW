@@ -15,6 +15,7 @@ public class CorporateManagementTest extends Baselibrary {
 
 	@BeforeClass
 	public static void corp() throws Exception {
+		
 	LoginTest.validlogintest();
 	
     CorporateManagement.corporate();
@@ -55,6 +56,7 @@ public class CorporateManagementTest extends Baselibrary {
 	
     CorporateManagement.managedivision(division);
  //   CorporateManagement.verifymanagedivision(driver);
+    test = report.createTest("create corporate");
    
 	
 	}

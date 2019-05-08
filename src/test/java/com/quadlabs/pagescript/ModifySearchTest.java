@@ -3,11 +3,12 @@ package com.quadlabs.pagescript;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.quadlabs.generic.Baselibrary;
 import com.quadlabs.generic.ExcelUtilities;
 import com.quadlabs.pageobject.DashBoard;
 import com.quadlabs.pageobject.ModifySearch;
 
-public class ModifySearchTest {
+public class ModifySearchTest extends Baselibrary {
 
 	
 
@@ -80,9 +81,10 @@ public class ModifySearchTest {
 	public void Modifysearch(String depcity,String depcityairport,String Descity,String Descityairport,
 			String Triptype ,String tripdate,String Airline,String PolicyType) throws Exception
 	{
-		
+		test = report.createTest("Manage Modifysearch  test");
 		ModifySearch.flightmodify(depcity, depcityairport, Descity, Descityairport, 
 				Triptype, tripdate, Airline, PolicyType);
+		
 	}
 	
 	

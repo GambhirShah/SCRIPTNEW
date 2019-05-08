@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+  <test verbose="2" name="Default test">
     <classes>
-      <class name="com.quadlabs.pagescript.hotel.HotelbookingTest">
+      <class name="com.quadlabs.pagescript.CorporateManagementTest"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.quadlabs.pagescript.CorporateManagementTest">
         <methods>
-          <include name="Dashboarddata"/>
-          <include name="precondition"/>
-          <include name="hotelbooking"/>
-          <include name="postcondition"/>
+          <include name="expirtationalert"/>
+          <include name="costCenter"/>
+          <include name="Designation"/>
+          <include name="corporatecard"/>
+          <include name="corporatecard"/>
+          <include name="managebranch"/>
+          <include name="project"/>
+          <include name="outpolicyclose"/>
+          <include name="EmployeeGrade"/>
+          <include name="pdreasonoutpolicy"/>
+          <include name="managedivision"/>
+          <include name="projectclose"/>
+          <include name="TravelCategory"/>
+          <include name="closegrade"/>
+          <include name="expirationalert"/>
+          <include name="closebranch"/>
+          <include name="closedesignation"/>
+          <include name="setextent"/>
+          <include name="costcenter"/>
+          <include name="category"/>
+          <include name="closediv"/>
+          <include name="department"/>
+          <include name="closedepartment"/>
         </methods>
-      </class> <!-- com.quadlabs.pagescript.hotel.HotelbookingTest -->
+      </class> <!-- com.quadlabs.pagescript.CorporateManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

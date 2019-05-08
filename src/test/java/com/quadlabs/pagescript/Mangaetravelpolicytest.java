@@ -82,6 +82,7 @@ public class Mangaetravelpolicytest extends Baselibrary
 		public static  void policy(String Traveller) throws Exception
 		
 		{
+			test = report.createTest("Manage traveller policy test");
 			ManageTravelPolicy.policyappliedon(Traveller);
 		}
 }

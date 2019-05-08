@@ -17,6 +17,8 @@ public class FlightBookviaAirline  extends Baselibrary {
 	public static void airlinebooking(String Airline,String PolicyType) throws Exception
 	{
 		
+		
+		
 		WebDriverWait wait =new WebDriverWait(driver,40);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='progress-bar progress-bar-striped active']")));
 		

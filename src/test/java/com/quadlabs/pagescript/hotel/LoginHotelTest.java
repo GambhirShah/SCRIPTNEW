@@ -13,7 +13,7 @@ public class LoginHotelTest extends Baselibrary {
 
 	@Test
 	public static void validlogintest() throws Exception {
-		
+		test = report.createTest("Login data");
 		Loginhotel lp = new Loginhotel();
 		
 		{

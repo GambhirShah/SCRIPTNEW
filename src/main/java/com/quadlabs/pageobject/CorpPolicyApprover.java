@@ -13,6 +13,8 @@ public class CorpPolicyApprover extends Baselibrary {
 	
 	{
 			getWebElement("Corporate").click();
+			
+			
 			getWebElement("approverpolicyworkflow").click();
 			getWebElement("managecorporateapprover").click();
 			getWebElement("Addnew").click();

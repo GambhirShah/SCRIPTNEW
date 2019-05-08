@@ -16,7 +16,6 @@ public class SearchTripREquest extends Baselibrary{
 		
 		//WebElement strip=driver.findElement(By.xpath("//div[@class='progress-bar progress-bar-striped active']"));
 		
-		
 		WebDriverWait wait =new WebDriverWait(driver,40);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class='progress-bar progress-bar-striped active']")));
 		//div[@class='progress-bar progress-bar-striped active']
